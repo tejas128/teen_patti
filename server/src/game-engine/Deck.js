@@ -1,3 +1,5 @@
+const Card = require("./Card");
+
 class Deck {
     cards = []
     constructor(){
@@ -18,6 +20,15 @@ class Deck {
         } 
     }
 
+    shuffle(){
+        for(let i = 0 ; i < this.cards.length; i++){
+            let temp = this.cards[i]
+            let newIndex = Math.floor(Math.random() * 10)
+            this.cards[i] = this.cards[newIndex]
+            this.cards[newIndex] = temp
+        }
+        console.log(JSON.stringify(this.cards))
+    }
 
 }
 

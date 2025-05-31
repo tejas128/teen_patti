@@ -10,7 +10,7 @@ class TeenPattiGame {
     addPlayer(player){
         const newPlayer = new Player(player.name, player.id)
         this.players.push(newPlayer)
-        if(this.players.length >  2 && !this.started){
+        if(this.players.length >=  2 && !this.started){
             this.startGame()
         }
     }
@@ -22,12 +22,13 @@ class TeenPattiGame {
 
         // Deducting boot amount from player balance in game start
         this.players = this.players.map((player) => {
-            player.deductMoney(bootAmount)
+            player.deductMoney(this.bootAmount)
             return player
         })
 
         //creating deck
         this.deck = new Deck()
+        this.deck.shuffle()
         
     }
 }
